@@ -1,0 +1,15 @@
+version: "2"
+services:
+  myapp:
+    image: myapp:v.01
+    expose:
+      - "3000"
+    environment:
+      - VIRTUAL_HOST=localhost
+      - VIRTUAL_PORT=3000
+  nginx:
+    image: nginxproxy/nginx-proxy
+    ports:
+      - "8000:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
