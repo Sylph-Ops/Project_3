@@ -5,6 +5,8 @@ nano ~/hello-nginx/index.html
 
 docker run -d -p 8000:80 --name Nginx -v ~/hello-nginx:/usr/share/nginx/html nginx:latest
 
+curl -X GET http://localhost:8000
+
 ### Task №2
 mkdir ~/myapp
 
@@ -50,6 +52,7 @@ minikube addons enable ingress
 kubectl apply -f myapp-deployment-service.yaml
 
 kubectl apply -f myapp-ingress.yaml
+
 #### Get IP for request (no permanent domain assigned) (for IPv4)
 
 kubectl get ingress myapp-ingress | grep -oE '\b[0-9]{1,3}(\.[0-9]{1,3}){3}\b' | xargs -I{} curl -X GET {}
