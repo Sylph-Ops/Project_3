@@ -50,6 +50,6 @@ minikube addons enable ingress
 kubectl apply -f myapp-deployment-service.yaml
 
 kubectl apply -f myapp-ingress.yaml
-# Get IP for request (no permanent domain assigned) (for IPv4)
+#### Get IP for request (no permanent domain assigned) (for IPv4)
 
 kubectl get ingress myapp-ingress | grep -oE '\b[0-9]{1,3}(\.[0-9]{1,3}){3}\b' | xargs -I{} echo {}
